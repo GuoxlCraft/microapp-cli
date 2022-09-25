@@ -1,0 +1,48 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": false,
+    "sourceMap": false,
+    "noEmit": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitThis": false,
+    "baseUrl": "./",
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types/", "./types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "_c": ["src/components/index"],
+      "_c/*": ["src/components/*"],
+      "_v/*": ["src/views/*"],
+      "_u": ["src/utils/index"],
+      "_u/*": ["src/utils/*"],
+      "_h/*": ["src/hooks/*"]
+    },
+    "lib": ["esnext", "dom"]
+  },
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
+  },
+  "include": [
+    "env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "components.d.ts"
+  ]
+}
