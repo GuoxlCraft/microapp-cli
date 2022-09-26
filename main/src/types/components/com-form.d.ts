@@ -32,7 +32,7 @@ declare type FormComponent =
 
 declare interface FormOptionsConfig {
   label: string // 名称
-  value: string | number | boolean // 值
+  value: string | number // 值
   disabled?: boolean // 是否禁用
   key?: string | number // 唯一标识
   children?: FormOptionsConfig[]
@@ -51,12 +51,10 @@ declare interface FormSchemaConfig {
   colProps?: FormColProps // el-col props
   formItemProps?: IObj // form-item的props
   component?: FormComponent // 组件名称
-  inputDisabled?: boolean
   componentProps?: IObj // 组件对应的props
   value?: FormValueType // 值
   options?: FormOptionsConfig[] // 下拉项
   optionsField?: FormOptionsField // 下拉项别名
   onChange?: (T: IObj) => void // change事件
   hidden?: boolean // 是否隐藏
-  required?: boolean // 是否可以为空
 }

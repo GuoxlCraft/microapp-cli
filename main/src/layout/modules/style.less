@@ -1,0 +1,200 @@
+.app__wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .app__wrap_header {
+    flex: 0 0 70px;
+    background: #fff;
+  }
+  .app__wrap_body {
+    flex: 1 1 100%;
+  }
+
+  .menu__tab {
+    z-index: 1;
+    width: @menuTabWidth;
+    height: 100%;
+    padding-top: 10px;
+    box-sizing: border-box;
+    background: @menuTabBg;
+    box-shadow: 2px 0px 8px 0px rgba(136, 142, 184, 0.14);
+
+    /deep/ .is-left::after,
+    /deep/ .el-tabs__active-bar {
+      width: @menuTabWidth;
+      background: @menuTabBg;
+    }
+    /deep/ .el-tabs__active-bar {
+      background: url('~@/assets/img/menuActiveBg.png') no-repeat center center;
+      background-size: 85% 100%;
+      z-index: -1;
+    }
+
+    /deep/.el-tabs {
+      height: 100%;
+
+      .el-tabs__header {
+        width: @menuTabWidth;
+        height: 100%;
+        margin-right: 0;
+
+        .el-tabs__nav-wrap {
+          height: 100%;
+
+          .el-tabs__item {
+            height: @menuTabItemHeight;
+            padding: 0;
+            overflow: hidden;
+            line-height: 0;
+            color: @menuTabText;
+            text-align: center;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
+
+          .is-active {
+            color: @menuTabActiveText;
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar__wrap {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: @menuWidth;
+    height: calc(100% - 70px);
+    transition: width 0.2s;
+    z-index: 1;
+  }
+
+  .sidebar__wrap--tab {
+    width: @menuWidth + @menuTabWidth;
+  }
+
+  .sidebar__wrap--collapsed {
+    width: @menuMinWidth;
+
+    /deep/ .anticon-item {
+      display: none;
+    }
+
+    .menu__tab {
+      width: @menuMinWidth;
+    }
+    .side_bar {
+      width: 0px;
+    }
+  }
+
+  .sidebar__btn {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    background: #fff;
+    color: #737588;
+    right: -12px;
+    top: 50%;
+    font-size: 12px;
+    margin-top: -30px;
+    cursor: pointer;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .main__wrap {
+    position: absolute;
+    top: 70px;
+    left: @menuWidth;
+    width: calc(~'100% - @{menuWidth}');
+    height: calc(100% - 70px);
+    transition: all 0.2s;
+
+    .header__wrap {
+      transition: all 0.2s;
+
+      /deep/ .navbar__wrap {
+        position: relative;
+        display: flex;
+        height: @navbarHeight;
+        padding: 0 20px 0 15px;
+        background: @contentBg;
+        align-items: center;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          border-top: 1px solid #d8dce5;
+          content: '';
+        }
+
+        /deep/ .hover-container {
+          height: 100%;
+          padding: 0 5px;
+          line-height: @navbarHeight + 5px;
+          text-align: center;
+          transition: background 0.2s;
+
+          &:hover {
+            background: #f6f6f6;
+          }
+        }
+
+        .navbar__wrap--right {
+          position: absolute;
+          top: 0;
+          right: 20px;
+          display: flex;
+          height: @navbarHeight;
+          align-items: center;
+
+          /deep/ .screenfull-container,
+          /deep/ .user-container {
+            line-height: @navbarHeight !important;
+          }
+        }
+      }
+    }
+
+    // content样式
+    .main__wrap--content {
+      height: 100%;
+
+      /deep/ .el-scrollbar__wrap {
+        overflow-x: hidden;
+      }
+    }
+    // content样式
+  }
+
+  .main__wrap--tab {
+    left: @menuWidth + @menuTabWidth;
+    width: calc(~'100% - @{menuWidth} - @{menuTabWidth}');
+  }
+
+  .main__wrap--collapsed {
+    left: @menuMinWidth;
+    width: calc(~'100% - @{menuMinWidth}');
+  }
+
+  .main__wrap--tab--collapsed {
+    left: @menuMinWidth;
+    width: calc(~'100% - @{menuMinWidth}');
+  }
+}
+
+.app__wrap--Classic {
+  .header__wrap--fixed {
+    top: 70px !important;
+  }
+}

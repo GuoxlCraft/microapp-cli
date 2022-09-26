@@ -1,5 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -17,12 +16,12 @@
     "noUnusedParameters": true,
     "strictFunctionTypes": false,
     "sourceMap": false,
-    "noEmit": false,
+    "noEmit": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "noImplicitThis": false,
     "baseUrl": "./",
-    "types": ["node"],
+    "types": ["webpack-env", "node", "unplugin-vue-define-options"],
     "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
       "@/*": ["src/*"],
@@ -39,10 +38,11 @@
     "experimentalCompatMode": 2
   },
   "include": [
-    "env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
     "components.d.ts"
   ]
 }

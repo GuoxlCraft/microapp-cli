@@ -1,0 +1,52 @@
+{
+  "presets": [
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "vOn": true,
+        "vModel": true,
+        "compositionAPI": true
+      }
+    ],
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": {
+          "version": 3
+        },
+        "modules": false
+      }
+    ],
+    [
+      "@babel/typescript",
+      {
+        "allExtensions": true,
+        "isTSX": true
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3
+      }
+    ],
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    [
+      "import",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryDirectory": "lib/theme-chalk"
+      }
+    ]
+  ]
+}
