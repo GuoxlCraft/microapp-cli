@@ -96,7 +96,7 @@ function changeTab(item: any) {
     //     (tabRouters.value[item.index] as any).children[0].path
     //   }`
     // )
-    setAcitveTab(this.activeName)
+    setAcitveTab(activeName.value)
   }
 }
 

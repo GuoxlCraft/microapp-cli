@@ -18,7 +18,7 @@ module.exports = {
       }
     },
     host: '0.0.0.0',
-    port: 7001,
+    port: 7002,
     autoOpenBrowser: false,
     poll: false,
 

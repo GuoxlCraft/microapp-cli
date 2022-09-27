@@ -132,7 +132,8 @@
     "webpack-dev-server": "^4.4.0",
     "webpack-env": "^0.8.0",
     "webpack-merge": "^5.8.0",
-    "webpack-sources": "^3.2.1"
+    "webpack-sources": "^3.2.1",
+    "whatwg-fetch": "^3.6.2"
   },
   "engines": {
     "node": ">= 14.0.0",

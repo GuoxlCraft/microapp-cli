@@ -74,7 +74,6 @@ import { permissionStore } from '@/store/modules/permission'
 import path from 'path'
 import { RouteConfig } from 'vue-router'
 
-const { refs } = getCurrentInstance() as any
 const root = (getCurrentInstance() as any).proxy
 
 const route = computed(() => root.$route)
@@ -148,11 +147,11 @@ function addTags() {
 }
 
 function moveToCurrentTag() {
-  const tags = refs.tag as any[]
+  const tags = root.$refs.tag as any[]
   nextTick(() => {
     for (const tag of tags) {
       if ((tag as any).to.path === route.value.path) {
-        ;(refs.scrollPane as any).moveToTarget(tag as any)
+        ;(root.$refs.scrollPane as any).moveToTarget(tag as any)
         // when query is different then update
         if ((tag as any).to.fullPath !== route.value.fullPath) {
           tagsViewStore.updateVisitedView(route.value as RouteConfig)
@@ -243,7 +242,7 @@ function closeMenu() {
 }
 
 function move(to: number) {
-  ;(refs.scrollPane as any).moveTo(to)
+  ;(root.$refs.scrollPane as any).moveTo(to)
 }
 
 function getUserInfo() {

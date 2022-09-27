@@ -1,5 +1,6 @@
 import 'core-js/stable'
 import 'custom-event-polyfill'
+import 'whatwg-fetch'
 import 'core-js/web/url'
 import 'regenerator-runtime/runtime'
 

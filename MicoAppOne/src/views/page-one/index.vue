@@ -1,9 +1,9 @@
 <template>
   <div class="PageOne page-container">
     <div class="PageOne-left">
-      <h4>页面一</h4>
+      <h4>页面1</h4>
       <span>演示：子应用1的第一个页面。<br />该页面的路由属性noCache为1。因此页面保活。<br />并提供该页面的子页面Page-one-one的跳转按钮。</span>
-      <div class="PageOne-left-button">跳转到页面1-1</div>
+      <div class="PageOne-left-button" @click="JumpToPage('page-one-one')">跳转到页面1-1</div>
     </div>
     <div class="PageOne-right">
       <label for="inputValue">页面保活测试：</label>
@@ -18,8 +18,12 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
+const root: IObj = (getCurrentInstance() as any).proxy
 const inputValue = ref('')
+function JumpToPage(url) {
+  root.$router.push(url)
+}
 </script>
 
 <style lang="less" scoped>

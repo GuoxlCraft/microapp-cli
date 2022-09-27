@@ -2,6 +2,7 @@ import './public-path'
 import 'core-js/stable'
 import 'custom-event-polyfill'
 import 'core-js/web/url'
+import 'whatwg-fetch'
 import 'regenerator-runtime/runtime'
 
 import Vue from 'vue'
