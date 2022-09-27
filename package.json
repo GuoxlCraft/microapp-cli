@@ -1,0 +1,18 @@
+{
+  "name": "microapp-cli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start:main": "cd main && npm run serve",
+    "all:install": "node npmScript.js allInstall",
+    "all:start": "node npmScript.js allStart",
+    "docs:i": "cd docs && yarn install",
+    "docs:dev": "cd docs && npm run dev",
+    "docs:build": "cd docs && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.5"
+  }
+}
