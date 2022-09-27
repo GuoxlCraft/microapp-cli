@@ -19,8 +19,8 @@ export default {
 import { nextTick, getCurrentInstance } from 'vue'
 import { useScrollTo } from '_h/event/useScrollTo'
 
-const { refs, parent } = getCurrentInstance() as any
-
+const root = getCurrentInstance()?.proxy as any
+console.log(getCurrentInstance())
 const tagAndTagSpacing = 4 // tagAndTagSpacing
 
 defineExpose({
@@ -31,15 +31,15 @@ defineExpose({
 function handleScroll(e: WheelEvent) {
   // @ts-ignore
   const eventDelta = e.wheelDelta || -e.deltaY * 40
-  const $scrollWrapper = (refs.scrollContainer as any).$refs.wrap as HTMLElement
+  const $scrollWrapper = (root.$refs.scrollContainer as any).$root.$refs.wrap as HTMLElement
   $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
 }
 
 function moveToTarget(currentTag: HTMLElement) {
-  const $container = (refs.scrollContainer as any).$el as HTMLElement
+  const $container = (root.$refs.scrollContainer as any).$el as HTMLElement
   const $containerWidth = $container.offsetWidth
-  const $scrollWrapper = (refs.scrollContainer as any).$refs.wrap as HTMLElement
-  const tagList = (parent as any).refs.tag as any[]
+  const $scrollWrapper = (root.$refs.scrollContainer as any).$refs.wrap as HTMLElement
+  const tagList = (root.$parent as any).$refs.tag as any[]
 
   let firstTag: any = null
   let lastTag: any = null
@@ -95,7 +95,7 @@ function moveToTarget(currentTag: HTMLElement) {
 }
 
 function moveTo(to: number) {
-  const $scrollWrapper = (refs.scrollContainer as any).$refs.wrap as HTMLElement
+  const $scrollWrapper = (root.$refs.scrollContainer as any).$root.$refs.wrap as HTMLElement
   nextTick(() => {
     const { start } = useScrollTo({
       el: $scrollWrapper,
