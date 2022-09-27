@@ -103,7 +103,7 @@ router.beforeEach(async (to: Route, from: Route, next: any) => {
         } else {
           setTimeout(() => {
             // 为什么要加2秒的延时,显示错误信息
-            JumpToLogin()
+            JumpToLogout()
           }, 2000)
         }
       } finally {
@@ -125,6 +125,15 @@ function JumpToLogin() {
   // window.location.href = `${LOGIN_URL}?service=${RETURN_URL}${
   //   targetPath[1] ? targetPath[1] : ''
   // }`
+  window.location.href = window.location.href + '?ticket=123456'
+}
+function JumpToLogout() {
+  /**
+   *  重定向到单点退出登录页
+   *  注意：演示版本，只是模拟了单点登录携带TiCKET
+   * **/
+  // const LOGIN_OUT_URL = appStore.getLoginOutUrl
+  // window.location.href = `${LOGIN_OUT_URL}?services=${RETURN_URL}`
   window.location.href = window.location.href + '?ticket=123456'
 }
 

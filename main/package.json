@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.0",
-    "vue": "~1.6.2",
     "axios": "^0.24.0",
     "core-js": "^3.19.0",
     "element-ui": "^2.15.6",

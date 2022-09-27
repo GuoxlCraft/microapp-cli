@@ -1,0 +1,191 @@
+@import './element-ui.less';
+@import './transition.less';
+@import './sidebar.less';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+.clearfix {
+  &::after {
+    display: block;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    content: ' ';
+    visibility: hidden;
+  }
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+// 悬停样式
+.hover-effect {
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.025);
+  }
+}
+// 悬停样式
+
+// 必填样式
+.is-required-item::before {
+  margin-right: 4px;
+  color: #f56c6c;
+  content: '*';
+}
+// 必填样式
+
+// 综合实例样式
+.search__example--wrap {
+  padding: 20px 10px 0 10px;
+  margin-bottom: 15px;
+  background: #fff;
+}
+
+.button__example--wrap {
+  margin-bottom: 10px;
+}
+
+.dialong__button--wrap {
+  margin-top: 20px;
+  text-align: center;
+}
+// 综合实例样式
+
+// 滚动条样式
+::-webkit-scrollbar {
+  /* 滚动条整体样式 */
+  width: 12px; /* 高宽分别对应横竖滚动条的尺寸 */
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+
+  /* 滚动条里面小方块 */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+
+  /* 滚动条里面轨道 */
+  border-radius: 0;
+}
+
+.common-breadcrum {
+  display: flex;
+  height: 45px;
+  line-height: 45px;
+  color: #57606a;
+  border-bottom: 1px solid #d8dee4;
+  box-sizing: border-box;
+  flex: 0 0 45px;
+  align-items: center;
+
+  &-icon {
+    display: block;
+  }
+
+  .button {
+    padding: 0 10px;
+    cursor: pointer;
+    border-radius: 4px;
+
+    i {
+      margin-right: 5px;
+    }
+  }
+
+  .button:last-child {
+    color: #4479ff;
+  }
+
+  .button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.page-container {
+  display: flex;
+  height: 100%;
+  padding: 0 20px 20px 20px;
+  overflow: auto;
+  background: #fff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.noData {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    line-height: 40px;
+    color: #999;
+  }
+}
+
+.com-message {
+  z-index: 9999 !important;
+}
+
+.x6-edge-selected {
+  path {
+    stroke: #ffb21b;
+    stroke-width: 1;
+  }
+}
+
+.com-button {
+  height: 40px;
+  padding: 0 30px;
+  margin-right: 12px;
+  line-height: 38px;
+  color: #687bff;
+  cursor: pointer;
+  border: 1px solid #4479ff;
+  border-radius: 18px;
+
+  i {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #4479ff;
+  }
+}

@@ -6,17 +6,10 @@ import { RouteConfig } from 'vue-router'
 import { useCache } from '_h/web/useCache'
 const { wsCache } = useCache()
 import { appStore } from '@/store/modules/app'
-const RETURN_URL = appStore.getReturnUrl
-const LOGIN_OUT_URL = appStore.getLoginOutUrl
+
 import { logout } from '@/common-api'
 
 import path from 'path'
-// import { appStore } from './app'
-// import { isExternal } from '_u/validate'
-
-// import MicroAppView from '@/components/MicroAppView/index.vue'
-// import ParentView from '@/components/ParentView/index.vue'
-// import Dashboard from '@/views/Dashboard/index.vue'
 
 export interface PermissionState {
   routers: RouteConfig[]
@@ -217,7 +210,12 @@ async function logoutUser() {
   })
   if (res) {
     wsCache.clear()
-    window.location.href = `${LOGIN_OUT_URL}?services=${RETURN_URL}`
+    location.reload()
+
+    // 演示版本：退出跳转改为刷新本页面
+    // const RETURN_URL = appStore.getReturnUrl
+    // const LOGIN_OUT_URL = appStore.getLoginOutUrl
+    // window.location.href = `${LOGIN_OUT_URL}?services=${RETURN_URL}`
   }
 }
 export const permissionStore = getModule(Permission)

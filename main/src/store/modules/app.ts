@@ -33,8 +33,8 @@ class App extends VuexModule implements AppState {
   public showHamburger = true // 是否显示侧边栏缩收按钮
   public showScreenfull = true // 是否全屏按钮
   public showUserInfo = true // 是否显示用户头像
-  public title = '起源大数据分析与应用平台' // 标题
-  public logoTitle = '起源大数据分析与应用平台' // logo标题
+  public title = 'Origin-MicoApp-Cli' // 标题
+  public logoTitle = '起源微前端框架' // logo标题
   public userInfo = 'userInfo' // 登录信息存储字段-建议每个项目换一个字段，避免与其他项目冲突
   public showBackTop = true // 是否显示回到顶部
   public showMenuTab = true // 是否固定一级菜单
@@ -68,7 +68,7 @@ class App extends VuexModule implements AppState {
     // 生产环境
     pro: 'http://localhost:7001/',
     // 测试环境
-    test: 'http://localhost:7001/',
+    test: 'http://localhost:7001/'
   }
 
   // 获取当前环境的单点登录地址
