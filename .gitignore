@@ -1,13 +1,13 @@
 .DS_Store
 node_modules/
-/dist/
-/dist*
 /docs/node_modules/
 /docs/docs/.vuepress/dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /test/unit/coverage/
+/main/dist/
+/app/***/dist/
 /test/e2e/reports/
 selenium-debug.log
 /components.d.ts
