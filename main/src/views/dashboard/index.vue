@@ -4,7 +4,7 @@
       <img src="@/assets/img/logoBig.png" alt="" />
       <h4>起源微前端框架</h4>
       <span>开箱即用的微前端框架</span>
-      <div class="button">前往使用文档</div>
+      <div class="button" @click="openDocswweb()">前往使用文档</div>
     </div>
     <div class="dashboard-body">
       <div class="dashboard-good">
@@ -42,7 +42,11 @@ export default {
   name: 'Dashboard'
 }
 </script>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+function openDocswweb() {
+  window.open('https://guoxlcraft.github.io/microapp-cli-doc/')
+}
+</script>
 
 <style lang="less" scoped>
 .dashboard {

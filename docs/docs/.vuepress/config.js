@@ -1,7 +1,7 @@
 module.exports = {
-  title: 'vue2.7-qiankun-cli',
-  description: 'XXXXXXX。',
-  base: '/vue2.7-qiankun-cli/', // 这是部署到github相关的配置
+  title: 'vue-element-admin',
+  description: '种一棵树最好的时间是十年前，其次就是现在。',
+  base: process.argv[2] === 'dev' ? '/' : '/microapp-cli-doc/', // 这是部署到github相关的配置
   // base: '/',
   // base: '/dist-doc2.0/',
   // base: '/ue/2019/doc/vue-standard/dist/',
