@@ -12,10 +12,8 @@
 
 ```sh
 # clone 代码
-git clone http://192.168.169.57:9000/scm/git/hzt-webdocs.git
+git clone https://github.com/GuoxlCraft/microapp-cli.git
 ```
-
-## 安装
 
 ### 安装 Node.js
 
@@ -31,75 +29,44 @@ npm -v
 node -v
 ```
 
-### 安装依赖
+## 主应用
 
-推荐使用[Yarn](https://github.com/yarnpkg/yarn)进行依赖安装。
+进入根目录下的main目录，这个目录是主应用所在的目录。首先需要安装依赖
+
+推荐使用[cnpm](https://zhuanlan.zhihu.com/p/125604620)进行依赖安装。
 
 在项目根目录下，打开命令窗口执行，耐心等待安装完成即可
 
+### 安装依赖
+
 ```sh
 # 安装依赖
-yarn
+cnpm i
 ```
-
-::: tip 提示
-安装依赖时`husky`安装失败
-
-请查看你的源码是否从`gitee`直接下载的，直接下载是没有`.git`文件夹的，而`husky`需要依赖`git`才能安装。此时需使用`git init`初始化项目，再尝试重新安装即可。
-
-或者，当前安装依赖的命令框，没有`git`环境，请确保存在`git`环境。
+另外，您也可以在根目录下使用脚本命令为主应用和所有子应用安装依赖。
+```sh
+# 主应用和当前子应用安装依赖
+npm run all:install
+```
+::: warning 注意
+目前脚本命令只是服务于现有的目录，在开发过程中应当根据具体的项目结构修改脚本命令。具体的配置方法将在进阶栏目说明。
 :::
-
-## 运行项目
+ 
+### 运行项目
 
 ```sh
 # 运行项目
 npm run serve
 ```
-
-## npm scripts
-
+另外，您也可以在根目录下使用脚本命令快速开启主应用和所有子应用的本地服务。
 ```sh
-"scripts": {
-  # 安装所有依赖
-  "i:all": "npm run i && npm run docs:i",
-  # 安装项目依赖
-  "i": "yarn install",
-  # 启动项目
-  "serve": "webpack serve --progress --no-stats --config build/webpack.dev.conf.js",
-  # eslint 检测修复
-  "lint": "eslint --fix --ext .js,.ts,.vue ./src",
-  # prettier 代码格式化
-  "format": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,vue,html,md}\"",
-  # stylelint 样式格式化
-  "lint:style": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-  # 提交前的统一格式化
-  "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
-  # 只对已提交文件进行格式化
-  "lint:pretty": "pretty-quick --staged",
-  # 打包开发环境
-  "build:dev": "node build/build.js dev",
-  # 打包生产环境
-  "build:pro": "node build/build.js pro",
-  # 打包测试环境
-  "build:test": "node build/build.js test",
-  # 生成打包分析
-  "build:report": "node build/build.js pro report",
-  # 删除项目和文档中的node包
-  "clean": "npx rimraf docs/node_modules && npx rimraf node_modules",
-  # 删除文档中的node包
-  "clean:docs": "npx rimraf docs/node_modules",
-  # 删除项目中的node包
-  "clean:main": "npx rimraf node_modules",
-  # husky初始化
-  "postinstall": "husky install",
-  # 文档依赖安装
-  "docs:i": "cd docs && yarn install",
-  # 文档开发环境运行
-  "docs:dev": "cd docs && npm run dev",
-  # 文档打包
-  "docs:build": "cd docs && npm run dev build",
-  # 检测所有依赖可升级版本
-  "check": "npm-check-updates"
-}
+# 主应用和当前子应用安装依赖
+npm run all:start
 ```
+::: warning 注意
+目前脚本命令只是服务于现有的目录，在开发过程中应当根据具体的项目结构修改脚本命令。具体的配置方法将在进阶栏目说明。
+:::
+
+## 子应用
+
+进入根目录下的app目录，这个目录是子应用所在的目录。目前提供了MicoAppOne和MicoAppTwo两个范例子应用。由于和主应用一样使用的vue2.7和webpack5开发。所以安装方式同主应用。后续会继续添加不同技术栈下的项目来作为范例，敬请期待。

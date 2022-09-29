@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'vue-element-admin',
-  description: '种一棵树最好的时间是十年前，其次就是现在。',
+  title: '起源微前端框架',
+  description: '基于qiankun2.0搭建且集成完善的的微前端框架。',
   base: process.argv[2] === 'dev' ? '/' : '/microapp-cli-doc/', // 这是部署到github相关的配置
   // base: '/',
   // base: '/dist-doc2.0/',
@@ -19,57 +19,18 @@ module.exports = {
           collapsable: false,
           children: [
             '/guide/',
-            '/guide/quick-start',
-            '/guide/configuration',
-            '/guide/router',
-            '/guide/mock'
+            '/guide/quick-start'
           ]
         },
         {
           title: '进阶',
           collapsable: false,
-          children: ['/guide/standard', '/guide/style', '/guide/role']
-        },
-        {
-          title: 'webpack5指南',
-          collapsable: false,
-          children: ['/guide/webpack']
-        }
-      ],
-      '/components/': [
-        {
-          title: '组件',
-          collapsable: false,
-          children: ['/components/']
-        },
-        {
-          title: '全局组件',
-          collapsable: false,
-          children: [
-            '/components/svg-icon',
-            '/components/com-table',
-            '/components/com-form',
-            '/components/com-search',
-            '/components/com-dialog',
-            '/components/com-detail'
-          ]
-        },
-        {
-          title: '普通组件',
-          collapsable: false,
-          children: [
-            '/components/echart',
-            '/components/preview',
-            '/components/avatars',
-            '/components/highlight',
-            '/components/editor',
-            '/components/qrcode',
-            '/components/timer',
-            '/components/marquee',
-            // '/components/water-fall',
-            '/components/tree-select',
-            '/components/ellipsis'
-          ]
+          children: [ 
+          '/guide/router',
+          '/guide/mock',
+          '/guide/configuration',
+          '/guide/standard',
+          '/guide/style']
         }
       ]
     },
@@ -84,16 +45,8 @@ module.exports = {
         link: '/guide/'
       },
       {
-        text: '功能组件',
-        link: '/components/'
-      },
-      {
         text: '更新日志',
         link: '/changLog/changLog'
-      },
-      {
-        text: '预览',
-        link: 'http://8.133.179.48:4000/dist'
       },
       {
         text: 'Github',

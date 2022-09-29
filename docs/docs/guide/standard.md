@@ -84,21 +84,6 @@ commit-lint 的配置位于项目根目录下`commitlint.config.js`
 ```sh
 git commit -m 'feat(home): add home page'
 ```
-
-## Stylelint
-
-### 介绍
-
-`stylelint`用于校验项目内部 css 的风格，加上编辑器的自动修复，可以很好的统一项目内部 css 风格
-
-### 配置
-
-`stylelint` 配置位于根目录下 stylelint.config.js
-
-### 编辑器配合
-
-如果您使用的是 `vscode` 编辑器的话，只需要安装[StyleLint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)插件，即可在保存的时候自动格式化文件内部 css 样式。
-
 ## Prettier
 
 ### 介绍
@@ -113,35 +98,6 @@ git commit -m 'feat(home): add home page'
 
 如果您使用的是 `vscode` 编辑器的话，只需要安装[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)插件，即可在保存的时候自动格式化文件内部 `js | ts` 格式。
 
-## Git Hooks
-
-很多时候我们 lint 的校验是放在持续集成阶段，大概流程如下：
-
-::: tip
-流程代码提交 --> 跑 CI 发现问题(远程) --> 本地修复问题 --> 重新提交 --> 通过检查(远程)
-:::
-
-但这样有一个问题，我们的 `CI(持续集成)` 往往不是仅仅只做 `Lint`工作，它还有会有很多其它的任务（如打包文件，静态资源上传 `CDN` 等），这样就导致特别的浪费时间，往往可能需要几分钟之后你才会发现问题，或者有的时候你根本就没有发现你的 `CI` 没有跑通过。
-
-常见的流程：本地写好了代码，提交，开始跑 `lint`，发现不通过，本地修改代码，再提交，再等待 `CI` 的结果，若还有问题再重复之前的操作。
-
-### husky
-
-最有效的解决方案就是将 `Lint` 校验放到本地，常见做法是使用 [husky](https://github.com/typicode/husky) 或者 [pre-commit](https://github.com/observing/pre-commit) 在本地提交之前先做一次 `Lint`校验。
-
-最后尝试 Git 提交，你就会很快收到反馈：
-
-```sh
-git commit -m "Keep calm and commit"
-```
-
-但这样会有一个问题，就是这次提交，我可能只修改了一个文件，比如我就修改了 `foo.js` 的内容，但它依然会校验所有`src` 下面的`.js`文件，非常的不友好。导致的问题就是：每次我提交我写的代码，还先要帮人的代码问题解决了才能顺利提交，而且当项目大了之后，检查速度也会变得越来越慢了。
-
-### lint-staged
-
-解决上面的痛点就需要使用 [lint-staged](https://github.com/okonet/lint-staged) 了。它只会校验检查你提交或者说你修改的部分内容。
-
-如上配置，每次它只会在你本地 `commit` 之前，校验你提交的内容是否符合你本地配置的 `eslint`规则，如果符合规则，则会提交成功。如果不符合它会自动执行 `eslint --fix` 尝试帮你自动修复，如果修复成功则会帮你把修复好的代码提交，如果失败，则会提示你错误，让你修好这个错误之后才能允许你提交代码。
 
 ### 总结
 

@@ -21,7 +21,7 @@
                               // 一直显示根路由(默认 false)
     title: 'title',           // 设置该路由在侧边栏和面包屑中展示的名字
     icon: 'svg-name',         // 设置该路由的图标
-    noCache: true,            // 如果设置为true，则不会被 <keep-alive> 缓存(默认 false)
+    noCache: 1,               // 如果设置为1，则会被 <keep-alive> 缓存(默认 0)
     breadcrumb: false,        // 如果设置为false，则不会在breadcrumb面包屑中显示(默认 true)
     affix: true,              // 如果设置为true，则会一直固定在tag项中(默认 false)
     noTagsView: true,         // 如果设置为true，则不会出现在tag中(默认 false)
@@ -52,22 +52,6 @@
 ## 多级目录(嵌套路由)
 
 如果你的路由是多级目录，如本项目 `src/views/level` 那样，有三级路由嵌套的情况下，不要忘记还要手动在二级目录的根文件下添加一个 `<router-view />`。
-
-## 路由缓存
-
-::: tip 提示
-本项目中路由都是默认缓存的，这里涉及到了嵌套路由的缓存问题。为了保证多级路由缓存可以正常使用，本项目中在动态路由中，把二级以下的路由全部转换成二级路由，菜单栏还是遵循开发者的嵌套结构来渲染。
-
-具体过滤代码可以查看`src/store/modules/permission.ts`
-:::
-
-## 面包屑
-
-::: tip 提示
-本项目中也封装了一个面包屑导航，它也是通过 `watch $route` 变化动态生成的。它和 `menu` 也一样，也可以通过之前那些配置项控制一些路由在面包屑中的展现。大家也可以结合自己的业务需求增改这些自定义属性。比如可以在路由中声明`breadcrumb:false`，让其不在 `breadcrumb` 面包屑显示。
-
-具体代码可以查看`src/layout/components/Breadcrumb/index.vue`
-:::
 
 ## 标签页
 

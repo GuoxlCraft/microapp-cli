@@ -1,7 +1,7 @@
 {
   "name": "main",
   "version": "v0.0.1",
-  "description": "一套基于wepback5 & typeScript & vue2.x的后台集成方案",
+  "description": "主应用",
   "author": "Archer <502431556@qq.com>",
   "private": true,
   "scripts": {
